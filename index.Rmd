@@ -1,0 +1,32 @@
+---
+title: "Evictions in San Francisco"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = FALSE)
+source("analysis.R")
+```
+
+# Summary
+
+Since 2015, there have been `r num_evictions` in the city of San Francisco. These are the zip codes that are most heavily impacted:
+
+```{r}
+kable(by_zip, col.names = c("Zip code", "Number of Evictions"))
+```
+
+# Time trends
+There have been notable spikes in evictions that warrant additional investigation:
+
+```{r}
+by_month_plot
+```
+
+## Spatial Trends
+Locations of evictions in 2017:
+
+```{r, warning=FALSE}
+evictions_plot
+```
